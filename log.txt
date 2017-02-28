@@ -1,0 +1,10 @@
+1 inch dispensed on: Mon Dec  5 02:10:06 2016
+3 inch dispensed on: Mon Dec  5 02:04:44 2016
+2 inch dispensed on: Mon Dec  5 02:05:02 2016
+1 inch dispensed on: 12/05/16 02:17:24
+2 inch dispensed: 02:19:12 12/05/16
+1.0 inch dispensed: 04:51:04 12/06/16
+1.0 inch dispensed: 05:07:17 12/06/16
+21:11:04 1.0 inches dispensed:  12/07/16
+21:18:16 2.0 inches dispensed:  12/07/16
+21:20:14 1.0 inches dispensed:  12/07/16
