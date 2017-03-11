@@ -13,6 +13,10 @@
 		3E728DB71E7284AE00D66583 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E728DB51E7284AE00D66583 /* Main.storyboard */; };
 		3E728DB91E7284AE00D66583 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E728DB81E7284AE00D66583 /* Assets.xcassets */; };
 		3E728DBC1E7284AE00D66583 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E728DBA1E7284AE00D66583 /* LaunchScreen.storyboard */; };
+		3E728DC41E73465100D66583 /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E728DC31E73465100D66583 /* LocationController.swift */; };
+		3E728DC71E734C2D00D66583 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E728DC61E734C2D00D66583 /* MapKit.framework */; };
+		3E728DC91E73B18500D66583 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E728DC81E73B18500D66583 /* MainViewController.swift */; };
+		3E728DCB1E73B5FA00D66583 /* ConnectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E728DCA1E73B5FA00D66583 /* ConnectionController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		3E728DB81E7284AE00D66583 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3E728DBB1E7284AE00D66583 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3E728DBD1E7284AE00D66583 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3E728DC31E73465100D66583 /* LocationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
+		3E728DC61E734C2D00D66583 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		3E728DC81E73B18500D66583 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		3E728DCA1E73B5FA00D66583 /* ConnectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E728DC71E734C2D00D66583 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +51,7 @@
 			children = (
 				3E728DAE1E7284AE00D66583 /* SmartSprinkler_ios */,
 				3E728DAD1E7284AE00D66583 /* Products */,
+				3E728DC51E734C2D00D66583 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -59,12 +69,23 @@
 				3E728DAF1E7284AE00D66583 /* AppDelegate.swift */,
 				3E728DB11E7284AE00D66583 /* FirstViewController.swift */,
 				3E728DB31E7284AE00D66583 /* SecondViewController.swift */,
+				3E728DC31E73465100D66583 /* LocationController.swift */,
+				3E728DC81E73B18500D66583 /* MainViewController.swift */,
+				3E728DCA1E73B5FA00D66583 /* ConnectionController.swift */,
 				3E728DB51E7284AE00D66583 /* Main.storyboard */,
 				3E728DB81E7284AE00D66583 /* Assets.xcassets */,
 				3E728DBA1E7284AE00D66583 /* LaunchScreen.storyboard */,
 				3E728DBD1E7284AE00D66583 /* Info.plist */,
 			);
 			path = SmartSprinkler_ios;
+			sourceTree = "<group>";
+		};
+		3E728DC51E734C2D00D66583 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3E728DC61E734C2D00D66583 /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,9 +160,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E728DC41E73465100D66583 /* LocationController.swift in Sources */,
+				3E728DCB1E73B5FA00D66583 /* ConnectionController.swift in Sources */,
 				3E728DB41E7284AE00D66583 /* SecondViewController.swift in Sources */,
 				3E728DB01E7284AE00D66583 /* AppDelegate.swift in Sources */,
 				3E728DB21E7284AE00D66583 /* FirstViewController.swift in Sources */,
+				3E728DC91E73B18500D66583 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +325,7 @@
 				3E728DC21E7284AE00D66583 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
