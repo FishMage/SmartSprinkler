@@ -1,19 +1,19 @@
 //
-//  LocationController.swift
+//  SplashViewController.swift
 //  SmartSprinkler_ios
 //
-//  Created by Richard Chen on 3/10/17.
+//  Created by Richard Chen on 3/11/17.
 //  Copyright © 2017 Richard Chen. All rights reserved.
 //
-import MapKit
+
 import UIKit
 
-class LocationController: UIViewController {
+class SplashViewController: UIViewController {
 
-    @IBOutlet weak var LocMap: MKMapView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        //show splash screen for 2 more sec
+        sleep(5)
         // Do any additional setup after loading the view.
     }
 

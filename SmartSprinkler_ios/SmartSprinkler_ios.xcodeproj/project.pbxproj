@@ -17,6 +17,8 @@
 		3E728DC71E734C2D00D66583 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E728DC61E734C2D00D66583 /* MapKit.framework */; };
 		3E728DC91E73B18500D66583 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E728DC81E73B18500D66583 /* MainViewController.swift */; };
 		3E728DCB1E73B5FA00D66583 /* ConnectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E728DCA1E73B5FA00D66583 /* ConnectionController.swift */; };
+		3E9338B01E7406A60088DF75 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9338AF1E7406A60088DF75 /* SplashViewController.swift */; };
+		3E9338B21E749B760088DF75 /* ConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9338B11E749B750088DF75 /* ConfirmViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		3E728DC61E734C2D00D66583 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3E728DC81E73B18500D66583 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		3E728DCA1E73B5FA00D66583 /* ConnectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionController.swift; sourceTree = "<group>"; };
+		3E9338AF1E7406A60088DF75 /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		3E9338B11E749B750088DF75 /* ConfirmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,9 +76,11 @@
 				3E728DC31E73465100D66583 /* LocationController.swift */,
 				3E728DC81E73B18500D66583 /* MainViewController.swift */,
 				3E728DCA1E73B5FA00D66583 /* ConnectionController.swift */,
+				3E9338B11E749B750088DF75 /* ConfirmViewController.swift */,
 				3E728DB51E7284AE00D66583 /* Main.storyboard */,
 				3E728DB81E7284AE00D66583 /* Assets.xcassets */,
 				3E728DBA1E7284AE00D66583 /* LaunchScreen.storyboard */,
+				3E9338AF1E7406A60088DF75 /* SplashViewController.swift */,
 				3E728DBD1E7284AE00D66583 /* Info.plist */,
 			);
 			path = SmartSprinkler_ios;
@@ -120,6 +126,7 @@
 				TargetAttributes = {
 					3E728DAB1E7284AE00D66583 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 8SKQ2SNAXM;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -163,8 +170,10 @@
 				3E728DC41E73465100D66583 /* LocationController.swift in Sources */,
 				3E728DCB1E73B5FA00D66583 /* ConnectionController.swift in Sources */,
 				3E728DB41E7284AE00D66583 /* SecondViewController.swift in Sources */,
+				3E9338B21E749B760088DF75 /* ConfirmViewController.swift in Sources */,
 				3E728DB01E7284AE00D66583 /* AppDelegate.swift in Sources */,
 				3E728DB21E7284AE00D66583 /* FirstViewController.swift in Sources */,
+				3E9338B01E7406A60088DF75 /* SplashViewController.swift in Sources */,
 				3E728DC91E73B18500D66583 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,7 +295,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 8SKQ2SNAXM;
 				INFOPLIST_FILE = SmartSprinkler_ios/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.WiscCs.RichardChen.SmartSprinkler-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -298,7 +309,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 8SKQ2SNAXM;
 				INFOPLIST_FILE = SmartSprinkler_ios/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.WiscCs.RichardChen.SmartSprinkler-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";

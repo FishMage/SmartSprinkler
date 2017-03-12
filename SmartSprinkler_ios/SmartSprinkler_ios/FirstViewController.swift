@@ -10,7 +10,13 @@ import UIKit
 
 class FirstViewController: UIViewController {
 
+    @IBOutlet weak var presetSwitch: UISwitch!
+    @IBOutlet weak var presetSeg: UISegmentedControl!
+    
+    //presetSeg.isHidden = true
+    
     override func viewDidLoad() {
+        presetSeg.isHidden = true
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -24,5 +30,13 @@ class FirstViewController: UIViewController {
         
     }
 
+    @IBAction func presetSwitchValueChange(_ sender: Any) {
+        if presetSwitch.isOn {
+            presetSeg.isHidden = false
+        }
+        else {
+            presetSeg.isHidden = true
+        }
+    }
 }
 

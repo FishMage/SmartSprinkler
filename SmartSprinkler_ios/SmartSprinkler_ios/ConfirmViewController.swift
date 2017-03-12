@@ -1,16 +1,15 @@
 //
-//  LocationController.swift
+//  ConfirmViewController.swift
 //  SmartSprinkler_ios
 //
-//  Created by Richard Chen on 3/10/17.
+//  Created by Richard Chen on 3/11/17.
 //  Copyright © 2017 Richard Chen. All rights reserved.
 //
-import MapKit
+
 import UIKit
 
-class LocationController: UIViewController {
+class ConfirmViewController: UIViewController {
 
-    @IBOutlet weak var LocMap: MKMapView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
