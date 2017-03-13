@@ -1,20 +1,22 @@
 //
-//  LocationController.swift
+//  LocalWeatherViewController.swift
 //  SmartSprinkler_ios
 //
-//  Created by Richard Chen on 3/10/17.
+//  Created by Richard Chen on 3/12/17.
 //  Copyright © 2017 Richard Chen. All rights reserved.
 //
 
 import UIKit
-import MapKit
+import WebKit
+class LocalWeatherViewController: UIViewController {
 
-class LocationController: UIViewController {
-
-    @IBOutlet weak var LocMap: MKMapView!
-
+    @IBOutlet weak var weatherWebView: UIWebView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let url = URL(string: "https://openweathermap.org/city/5261457") {
+            let request = URLRequest(url: url)
+            weatherWebView.loadRequest(request)
+        }
 
         // Do any additional setup after loading the view.
     }
@@ -24,7 +26,6 @@ class LocationController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
     /*
     // MARK: - Navigation
 

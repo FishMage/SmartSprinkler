@@ -29,7 +29,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="6xi-yb-SrS" kind="show" id="Ac2-FA-ZHC"/>
+                                    <segue destination="6xi-yb-SrS" kind="push" id="Apl-Ji-cyt"/>
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="VbB-mB-rQr">
@@ -117,11 +117,12 @@
                     <connections>
                         <outlet property="presetSeg" destination="VbB-mB-rQr" id="hH4-d6-k9j"/>
                         <outlet property="presetSwitch" destination="WIx-Zp-9UM" id="039-5c-CQr"/>
+                        <outlet property="zipcode" destination="AWZ-NX-XXP" id="D3k-2Q-gcO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1924" y="-410"/>
+            <point key="canvasLocation" x="1802" y="-384"/>
         </scene>
         <!--Location Controller-->
         <scene sceneID="zCC-Lw-OFP">
@@ -160,6 +161,7 @@
                                     <color key="titleShadowColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                 </state>
                                 <connections>
+                                    <action selector="a:" destination="6xi-yb-SrS" eventType="valueChanged" id="Vuu-xZ-fqq"/>
                                     <segue destination="9pv-A4-QxB" kind="show" id="2Qo-b6-Zxe"/>
                                 </connections>
                             </button>
@@ -194,20 +196,21 @@
                                 <rect key="frame" x="21" y="384" width="347" height="111"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="rge-LA-3LS">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rge-LA-3LS">
                                 <rect key="frame" x="41" y="191" width="299" height="125"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="1u4-Jy-jyB"/>
                     <connections>
-                        <outlet property="LocMap" destination="rge-LA-3LS" id="ouQ-ez-Y5b"/>
+                        <outlet property="LocMap" destination="rge-LA-3LS" id="Uck-29-3cC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0MZ-hp-EFG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2860" y="-881"/>
+            <point key="canvasLocation" x="3044" y="-885"/>
         </scene>
         <!--Confirm View Controller-->
         <scene sceneID="zSD-bT-Cw7">
@@ -411,7 +414,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H1I-dU-Z2c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3022" y="520"/>
+            <point key="canvasLocation" x="3044" y="573"/>
         </scene>
         <!--WaterMe IoT-->
         <scene sceneID="1Xv-qy-hd2">
@@ -425,33 +428,171 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.65000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SplashScreen" translatesAutoresizingMaskIntoConstraints="NO" id="YUE-WG-xSq">
+                            <imageView alpha="0.65000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SplashScreen" translatesAutoresizingMaskIntoConstraints="NO" id="YUE-WG-xSq">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                             </imageView>
-                            <visualEffectView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EDT-jS-HfP">
+                            <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="hYF-U7-SDo">
+                                <rect key="frame" x="0.0" y="32" width="375" height="602"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GjP-tp-d1c" userLabel="Controller-button">
+                                        <rect key="frame" x="204" y="62" width="137" height="134"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <size key="titleShadowOffset" width="3" height="0.0"/>
+                                        <state key="normal" title=" " image="sprinkler-icon2"/>
+                                    </button>
+                                    <button autoresizesSubviews="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nKg-2s-1VR" userLabel="About-button">
+                                        <rect key="frame" x="32" y="275" width="138" height="127"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <size key="titleShadowOffset" width="3" height="0.0"/>
+                                        <state key="normal" title=" " image="Info_groen"/>
+                                    </button>
+                                    <button autoresizesSubviews="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Fd-fr-f1E" userLabel="connect-button">
+                                        <rect key="frame" x="27" y="62" width="143" height="139"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <size key="titleShadowOffset" width="3" height="0.0"/>
+                                        <state key="normal" title=" " image="connection-icon"/>
+                                    </button>
+                                    <button autoresizesSubviews="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wNS-2l-ocW" userLabel="Local-button">
+                                        <rect key="frame" x="197" y="262" width="151" height="140"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <size key="titleShadowOffset" width="3" height="0.0"/>
+                                        <state key="normal" title=" " image="weather-icon"/>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sprinkler-icon2" translatesAutoresizingMaskIntoConstraints="NO" id="oOI-w8-3Ew">
+                                        <rect key="frame" x="204" y="67" width="136" height="145"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="connection-icon" translatesAutoresizingMaskIntoConstraints="NO" id="0XU-B6-b9l">
+                                        <rect key="frame" x="32" y="67" width="142" height="145"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="weather-icon" translatesAutoresizingMaskIntoConstraints="NO" id="wnF-fd-8Ps">
+                                        <rect key="frame" x="206" y="269" width="142" height="145"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Info_groen" translatesAutoresizingMaskIntoConstraints="NO" id="wMs-ZF-avn">
+                                        <rect key="frame" x="32" y="275" width="140" height="133"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="WaterMe " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tp0-gr-5ZW">
+                                        <rect key="frame" x="89" y="469" width="253" height="75"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="38"/>
+                                        <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <size key="shadowOffset" width="1" height="2"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Connect devices" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ir-T4-q70">
+                                        <rect key="frame" x="23" y="220" width="149" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Controller" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lwi-wM-fOR">
+                                        <rect key="frame" x="215" y="216" width="115" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="About" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sNc-ze-RYn">
+                                        <rect key="frame" x="74" y="416" width="59" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Local Weather" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HmU-WW-ymH">
+                                        <rect key="frame" x="213" y="419" width="129" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Smart Sprinkler System" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wcd-Vi-m46">
+                                        <rect key="frame" x="165" y="524" width="327" height="38"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <size key="shadowOffset" width="1" height="1"/>
+                                    </label>
+                                </subviews>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="oOI-w8-3Ew"/>
+                                        <exclude reference="0XU-B6-b9l"/>
+                                        <exclude reference="wnF-fd-8Ps"/>
+                                        <exclude reference="wMs-ZF-avn"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EDT-jS-HfP">
                                 <rect key="frame" x="0.0" y="65" width="375" height="602"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="kSL-ap-GwE">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="602"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sprinkler-icon2" translatesAutoresizingMaskIntoConstraints="NO" id="eGo-65-UgT">
+                                        <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g9u-zK-RWX" userLabel="Controller-button">
+                                            <rect key="frame" x="204" y="62" width="137" height="134"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <size key="titleShadowOffset" width="3" height="0.0"/>
+                                            <state key="normal" title=" " image="sprinkler-icon2"/>
+                                            <connections>
+                                                <segue destination="49e-Tb-3d3" kind="show" id="M4B-Bw-2Qh"/>
+                                            </connections>
+                                        </button>
+                                        <button autoresizesSubviews="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DIN-hG-QeC" userLabel="About-button">
+                                            <rect key="frame" x="32" y="275" width="138" height="127"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <size key="titleShadowOffset" width="3" height="0.0"/>
+                                            <state key="normal" title=" " image="Info_groen"/>
+                                            <connections>
+                                                <segue destination="upo-Gy-XPN" kind="show" id="zXG-FU-8SD"/>
+                                            </connections>
+                                        </button>
+                                        <button autoresizesSubviews="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yeE-3f-yKF" userLabel="connect-button">
+                                            <rect key="frame" x="27" y="62" width="143" height="139"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <size key="titleShadowOffset" width="3" height="0.0"/>
+                                            <state key="normal" title=" " image="connection-icon"/>
+                                            <connections>
+                                                <segue destination="QGg-TW-hM1" kind="show" id="bIN-OY-Dbl"/>
+                                            </connections>
+                                        </button>
+                                        <button autoresizesSubviews="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GKH-Kd-zbW" userLabel="Local-button">
+                                            <rect key="frame" x="197" y="262" width="151" height="140"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <size key="titleShadowOffset" width="3" height="0.0"/>
+                                            <state key="normal" title=" " image="weather-icon"/>
+                                            <connections>
+                                                <segue destination="1yR-YV-DVp" kind="show" id="dOE-HH-nqs"/>
+                                            </connections>
+                                        </button>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sprinkler-icon2" translatesAutoresizingMaskIntoConstraints="NO" id="eGo-65-UgT">
                                             <rect key="frame" x="204" y="67" width="136" height="145"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <gestureRecognizers/>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="connection-icon" translatesAutoresizingMaskIntoConstraints="NO" id="cGd-4i-bg6">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="connection-icon" translatesAutoresizingMaskIntoConstraints="NO" id="cGd-4i-bg6">
                                             <rect key="frame" x="32" y="67" width="142" height="145"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <gestureRecognizers/>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="weather-icon" translatesAutoresizingMaskIntoConstraints="NO" id="cdO-Jc-IUy">
-                                            <rect key="frame" x="201" y="263" width="142" height="145"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="weather-icon" translatesAutoresizingMaskIntoConstraints="NO" id="cdO-Jc-IUy">
+                                            <rect key="frame" x="206" y="269" width="142" height="145"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Info_groen" translatesAutoresizingMaskIntoConstraints="NO" id="8f7-De-LuL">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Info_groen" translatesAutoresizingMaskIntoConstraints="NO" id="8f7-De-LuL">
                                             <rect key="frame" x="32" y="275" width="140" height="133"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
@@ -486,33 +627,12 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Local Weather" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cNy-3d-acF">
-                                            <rect key="frame" x="211" y="412" width="129" height="21"/>
+                                            <rect key="frame" x="213" y="419" width="129" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wat-f6-byI" userLabel="Controller-button">
-                                            <rect key="frame" x="204" y="67" width="136" height="163"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <connections>
-                                                <segue destination="49e-Tb-3d3" kind="show" id="dHe-mT-fHk"/>
-                                            </connections>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xvm-1A-GAH" userLabel="About-button">
-                                            <rect key="frame" x="30" y="260" width="142" height="163"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <connections>
-                                                <segue destination="upo-Gy-XPN" kind="show" id="f9a-D2-U8b"/>
-                                            </connections>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fy3-pF-HGt" userLabel="Connection-button">
-                                            <rect key="frame" x="34" y="68" width="136" height="163"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <connections>
-                                                <segue destination="QGg-TW-hM1" kind="show" id="VoM-NZ-89b"/>
-                                            </connections>
-                                        </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Smart Sprinkler System" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2qw-lK-bd5">
                                             <rect key="frame" x="165" y="524" width="327" height="38"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -522,11 +642,15 @@
                                             <color key="shadowColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                             <size key="shadowOffset" width="1" height="1"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YyD-tA-9bA" userLabel="LocalWeather-button">
-                                            <rect key="frame" x="204" y="260" width="142" height="163"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </button>
                                     </subviews>
+                                    <variation key="default">
+                                        <mask key="subviews">
+                                            <exclude reference="eGo-65-UgT"/>
+                                            <exclude reference="cGd-4i-bg6"/>
+                                            <exclude reference="cdO-Jc-IUy"/>
+                                            <exclude reference="8f7-De-LuL"/>
+                                        </mask>
+                                    </variation>
                                 </view>
                                 <gestureRecognizers/>
                                 <blurEffect style="regular"/>
@@ -535,6 +659,11 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="hYF-U7-SDo"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="WaterMe IoT" id="F4Y-4z-pLm"/>
                 </viewController>
@@ -542,10 +671,10 @@
             </objects>
             <point key="canvasLocation" x="-1980" y="-63.418290854572717"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--RootView-->
         <scene sceneID="sVv-zZ-iQ0">
             <objects>
-                <navigationController id="YFU-i9-wAX" sceneMemberID="viewController">
+                <navigationController title="RootView" automaticallyAdjustsScrollViewInsets="NO" id="YFU-i9-wAX" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="OKM-f6-syS"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="Kqn-EH-XDT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -563,12 +692,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
-                        <segue destination="LJn-sm-rHY" kind="relationship" relationship="rootViewController" id="LeO-hT-GB5"/>
+                        <segue destination="LJn-sm-rHY" kind="relationship" relationship="rootViewController" id="aI1-f7-AcQ"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XYD-re-VVy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2914" y="-63"/>
+            <point key="canvasLocation" x="-2999" y="-63"/>
         </scene>
         <!--Connect a Device-->
         <scene sceneID="IXT-8v-nJ7">
@@ -583,7 +712,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Im5-va-gPR">
-                                <rect key="frame" x="67" y="257" width="240" height="65"/>
+                                <rect key="frame" x="67" y="272" width="240" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="17"/>
@@ -591,27 +720,12 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="raspberry-pi-logo" translatesAutoresizingMaskIntoConstraints="NO" id="07L-tZ-yFG">
-                                <rect key="frame" x="170" y="605" width="34" height="46"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="aws-final-logo" translatesAutoresizingMaskIntoConstraints="NO" id="vvB-HS-xkW">
-                                <rect key="frame" x="239" y="590" width="95" height="77"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Powered by:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AXN-kb-mTu">
-                                <rect key="frame" x="34" y="618" width="95" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="E9d-Cm-fww">
-                                <rect key="frame" x="78" y="367" width="218" height="2"/>
+                                <rect key="frame" x="78" y="382" width="218" height="2"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </progressView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dLK-eb-IAc">
-                                <rect key="frame" x="106" y="440" width="152" height="45"/>
+                                <rect key="frame" x="111" y="431" width="152" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.19728592038154602" green="0.79961293935775757" blue="0.44148069620132446" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="17"/>
@@ -623,17 +737,32 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cloud" translatesAutoresizingMaskIntoConstraints="NO" id="goF-a3-wSt">
-                                <rect key="frame" x="262" y="114" width="81" height="77"/>
+                                <rect key="frame" x="262" y="129" width="81" height="77"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="phone-icon" translatesAutoresizingMaskIntoConstraints="NO" id="Sal-KV-0Xb">
-                                <rect key="frame" x="32" y="114" width="80" height="77"/>
+                                <rect key="frame" x="32" y="129" width="80" height="77"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dashline-2" translatesAutoresizingMaskIntoConstraints="NO" id="1Zy-78-dQW">
-                                <rect key="frame" x="106" y="128" width="171" height="52"/>
+                                <rect key="frame" x="106" y="143" width="171" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="raspberry-pi-logo" translatesAutoresizingMaskIntoConstraints="NO" id="07L-tZ-yFG">
+                                <rect key="frame" x="177" y="575" width="34" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="aws-final-logo" translatesAutoresizingMaskIntoConstraints="NO" id="vvB-HS-xkW">
+                                <rect key="frame" x="246" y="560" width="95" height="77"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Powered by:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AXN-kb-mTu">
+                                <rect key="frame" x="41" y="588" width="95" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -643,7 +772,39 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ar8-k1-TqH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-946.39999999999998" y="-835.23238380809596"/>
+            <point key="canvasLocation" x="-927" y="-886"/>
+        </scene>
+        <!--Local Weather View Controller-->
+        <scene sceneID="lny-FK-jJs">
+            <objects>
+                <viewController id="1yR-YV-DVp" customClass="LocalWeatherViewController" customModule="SmartSprinkler_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IEB-oW-nBS"/>
+                        <viewControllerLayoutGuide type="bottom" id="Prw-ur-gR8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fCR-mx-ZJZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SplashScreen" translatesAutoresizingMaskIntoConstraints="NO" id="fKL-Tg-cTS">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DC8-tE-Mx0">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="weatherWebView" destination="DC8-tE-Mx0" id="hbT-Kq-Ada"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rDd-SF-FMP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1980" y="846.9265367316342"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="e2S-Xz-h7T">
@@ -677,6 +838,29 @@
                                 <color key="shadowColor" cocoaTouchSystemColor="lightTextColor"/>
                                 <size key="shadowOffset" width="11" height="-1"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="gtj-kf-SuW">
+                                <rect key="frame" x="35" y="125" width="304" height="235"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.70609482020547942" colorSpace="calibratedRGB"/>
+                                <string key="text">This application is a controller of the Smart Sprinkler IoT project for the advance independent research at University of Wisconsin-Madison. Developed by Richard Chen and Matt Saunders.  WaterMeIot was came up by Andy Ngyen.</string>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="raspberry-pi-logo" translatesAutoresizingMaskIntoConstraints="NO" id="K0Y-Sa-AyN">
+                                <rect key="frame" x="175" y="383" width="34" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="aws-final-logo" translatesAutoresizingMaskIntoConstraints="NO" id="t8p-OP-rBf">
+                                <rect key="frame" x="244" y="368" width="95" height="77"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Powered by:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CFm-Tn-PUM">
+                                <rect key="frame" x="39" y="396" width="95" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -684,12 +868,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pbd-M7-Bl1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-946.39999999999998" y="835.23238380809596"/>
+            <point key="canvasLocation" x="-927.20000000000005" y="709.29535232383819"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
                 <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="vGA-w5-Zhx"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
@@ -703,7 +888,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-906" y="-63"/>
+            <point key="canvasLocation" x="-927" y="-63"/>
         </scene>
         <!--Sprinkler-->
         <scene sceneID="52q-bc-95x">
@@ -748,6 +933,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="2Qo-b6-Zxe"/>
-        <segue reference="dHe-mT-fHk"/>
+        <segue reference="M4B-Bw-2Qh"/>
     </inferredMetricsTieBreakers>
 </document>

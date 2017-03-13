@@ -13,11 +13,14 @@ class FirstViewController: UIViewController {
     @IBOutlet weak var presetSwitch: UISwitch!
     @IBOutlet weak var presetSeg: UISegmentedControl!
     
+    @IBOutlet weak var zipcode: UILabel!
+    
     //presetSeg.isHidden = true
     
     override func viewDidLoad() {
-        presetSeg.isHidden = true
+        presetSeg.isEnabled = false
         super.viewDidLoad()
+        zipcode.text = "/"
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -32,10 +35,11 @@ class FirstViewController: UIViewController {
 
     @IBAction func presetSwitchValueChange(_ sender: Any) {
         if presetSwitch.isOn {
-            presetSeg.isHidden = false
+            presetSeg.isEnabled = true
         }
         else {
-            presetSeg.isHidden = true
+            presetSeg.isEnabled = false
+            
         }
     }
 }
