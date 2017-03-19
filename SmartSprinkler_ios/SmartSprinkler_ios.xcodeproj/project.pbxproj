@@ -21,6 +21,7 @@
 		3E9338B21E749B760088DF75 /* ConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9338B11E749B750088DF75 /* ConfirmViewController.swift */; };
 		3E982EEE1E7649BA00765072 /* LocalWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E982EED1E7649BA00765072 /* LocalWeatherViewController.swift */; };
 		3E982EF01E764C6500765072 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E982EEF1E764C6500765072 /* WebKit.framework */; };
+		3EEBBDF11E7E5110000213C1 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEBBDF01E7E5110000213C1 /* MapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		3E9338B11E749B750088DF75 /* ConfirmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmViewController.swift; sourceTree = "<group>"; };
 		3E982EED1E7649BA00765072 /* LocalWeatherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocalWeatherViewController.swift; path = ../LocalWeatherViewController.swift; sourceTree = "<group>"; };
 		3E982EEF1E764C6500765072 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		3EEBBDF01E7E5110000213C1 /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,14 +77,15 @@
 		3E728DAE1E7284AE00D66583 /* SmartSprinkler_ios */ = {
 			isa = PBXGroup;
 			children = (
-				3E982EED1E7649BA00765072 /* LocalWeatherViewController.swift */,
 				3E728DAF1E7284AE00D66583 /* AppDelegate.swift */,
 				3E728DB11E7284AE00D66583 /* FirstViewController.swift */,
 				3E728DB31E7284AE00D66583 /* SecondViewController.swift */,
-				3E728DC31E73465100D66583 /* LocationController.swift */,
 				3E728DCA1E73B5FA00D66583 /* ConnectionController.swift */,
 				3E9338B11E749B750088DF75 /* ConfirmViewController.swift */,
 				3E728DC81E73B18500D66583 /* MainViewController.swift */,
+				3E982EED1E7649BA00765072 /* LocalWeatherViewController.swift */,
+				3E728DC31E73465100D66583 /* LocationController.swift */,
+				3EEBBDF01E7E5110000213C1 /* MapView.swift */,
 				3E728DB51E7284AE00D66583 /* Main.storyboard */,
 				3E728DB81E7284AE00D66583 /* Assets.xcassets */,
 				3E728DBA1E7284AE00D66583 /* LaunchScreen.storyboard */,
@@ -181,6 +184,7 @@
 				3E9338B21E749B760088DF75 /* ConfirmViewController.swift in Sources */,
 				3E728DB01E7284AE00D66583 /* AppDelegate.swift in Sources */,
 				3E728DB21E7284AE00D66583 /* FirstViewController.swift in Sources */,
+				3EEBBDF11E7E5110000213C1 /* MapView.swift in Sources */,
 				3E9338B01E7406A60088DF75 /* SplashViewController.swift in Sources */,
 				3E728DC91E73B18500D66583 /* MainViewController.swift in Sources */,
 			);

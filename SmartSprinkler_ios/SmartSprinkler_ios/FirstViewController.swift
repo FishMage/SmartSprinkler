@@ -12,15 +12,17 @@ class FirstViewController: UIViewController {
 
     @IBOutlet weak var presetSwitch: UISwitch!
     @IBOutlet weak var presetSeg: UISegmentedControl!
-    
     @IBOutlet weak var zipcode: UILabel!
     
-    //presetSeg.isHidden = true
+    var passedZip:String!
+    var passedCityName:String!
     
+  //  passedZip = ""
     override func viewDidLoad() {
         presetSeg.isEnabled = false
         super.viewDidLoad()
-        zipcode.text = "/"
+        zipcode.text = passedZip
+      
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -28,6 +30,8 @@ class FirstViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
 
     @IBAction func locationOnClick(_ sender: UIButton) {
         
@@ -42,5 +46,7 @@ class FirstViewController: UIViewController {
             
         }
     }
+    
+    
 }
 
