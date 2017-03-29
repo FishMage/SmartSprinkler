@@ -15,13 +15,43 @@ class ConfirmViewController: UIViewController {
     @IBOutlet weak var lblCompleteMessage_small: UILabel!
     @IBOutlet weak var btnStartSprinkling: UIButton!
     @IBOutlet weak var lblCompleteMessage: UILabel!
+    
+    //User defined values:
+    @IBOutlet weak var lblPrecipitation: UILabel!
+    @IBOutlet weak var lblZipcode: UILabel!
+    @IBOutlet weak var lblWaterNeeded: UILabel!
+    @IBOutlet weak var lblStartTime: UILabel!
+    @IBOutlet weak var lblEndTime: UILabel!
+    @IBOutlet weak var lblAuto: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         lblCompleteMessage.isHidden = true
         lblCompleteMessage_small.isHidden = true
-        //lblClickToStart.isHidden = false
-       // lblCongrats.isHidden = true
-        // Do any additional setup after loading the view.
+        
+        //Get info from previous View
+        if (Shared.shared.confirmedZip) != nil {lblZipcode.text = Shared.shared.confirmedZip}
+        if (Shared.shared.isAuto) != nil {
+            if Shared.shared.isAuto == true
+            {
+                lblAuto.text = "ON"
+            }else{
+                lblAuto.text = "OFF"
+            }
+        }
+        if (Shared.shared.Precipitation) != nil {}
+        if (Shared.shared.StartTime) != nil {
+            let dateformatter = DateFormatter()
+            dateformatter.dateStyle = DateFormatter.Style.short
+            let now = dateformatter.string(from: Shared.shared.StartTime)
+            lblStartTime.text = now
+            let end = dateformatter.string(from: Shared.shared.StartTime.addingTimeInterval(7*24*60*60))
+            lblEndTime.text = end
+        }
+        if (Shared.shared.waterNeeded) != nil {
+            lblWaterNeeded.text = Shared.shared.waterNeeded
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,6 +72,9 @@ class ConfirmViewController: UIViewController {
         else{
             self.performSegue(withIdentifier: "segueToMain", sender: self)
         }
+        //TODO: AWS IoT
+        
+        
     }
 
     /*

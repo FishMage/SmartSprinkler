@@ -9,10 +9,12 @@
 import UIKit
 import MapKit
 import CoreLocation
+import Foundation
+
 
 class LocationController:UIViewController,CLLocationManagerDelegate,MKMapViewDelegate {
     
-    @IBOutlet weak var txtCityName: UITextField!
+//    @IBOutlet weak var txtCityName: UITextField!
     @IBOutlet weak var txtZipcode: UITextField!
     @IBOutlet weak var btnSelectLocation: UIButton!
     @IBOutlet weak var cityName: UILabel!
@@ -30,12 +32,13 @@ class LocationController:UIViewController,CLLocationManagerDelegate,MKMapViewDel
     let alertSearch = UIAlertController(title: "Warning", message: "Enter your City or Zipcode", preferredStyle: UIAlertControllerStyle.alert)
     let alertConfirmInfo = UIAlertController(title: "City", message: "Madison, WI, 53715", preferredStyle: UIAlertControllerStyle.alert)
     
-    
+    //Weather
+    private let apiKey = "6638a13657b81ecbe08a47749ecfa9b7"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         txtZipcode.placeholder = "zipcode"
-        txtCityName.placeholder = "city name"
+        //self.txtCityName.placeholder = "city name"
         imgWeather.isHidden = true
         btnSelectLocation.isEnabled = false
         locationManager.delegate = self
@@ -46,6 +49,13 @@ class LocationController:UIViewController,CLLocationManagerDelegate,MKMapViewDel
             // Fallback on earlier versions
         }
         locationManager.startUpdatingLocation()
+        
+        //Weather Code 
+//       let baseURL = NSURL(string: "https://api.forecast.io/forecast/\(apiKey)/")
+//       let forecastURL = NSURL(string: "32.302452,-80.975017", relativeToURL: baseURL as! URL)
+//        
+//       let weatherData = NSData.dataWithContentsOfURL(forecastURL, options: nil, error: nil)
+//        println(weatherData)
         
     }
 
@@ -67,16 +77,15 @@ class LocationController:UIViewController,CLLocationManagerDelegate,MKMapViewDel
     
     func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
         if (segue.identifier == "locationToController") {
-            let svc = segue!.destination as! FirstViewController;
-            svc.passedZip = zipcode.text
+            let svc = segue!.destination as! FirstViewController
+            svc.passedZip = "53715"
             //print(zipcode.text)
         }
     }
     
-   
     @IBAction func btnSearchOnClick(_ sender: Any) {
-        if txtZipcode.text == "53715"{
-            //add actions to message
+        if txtZipcode.text != ""{
+/*          //add actions to message
             alert.addAction(UIAlertAction(title: "Confirm", style: UIAlertActionStyle.default, handler: nil))
             
             //present alert
@@ -84,20 +93,44 @@ class LocationController:UIViewController,CLLocationManagerDelegate,MKMapViewDel
             
             sleep(1)
             cityName.text = "Madison"
-            zipcode.text = "53715"
+            zipcode.text = txtZipcode.text
             imgWeather.isHidden = false
             btnSelectLocation.isEnabled = true
             btnSelectLocation.backgroundColor  =  #colorLiteral(red: 0.4767096639, green: 0.7372747064, blue: 0.09030196816, alpha: 1)
+ */
+            let zipCode = txtZipcode.text
+            
+            let geocoder = CLGeocoder()
+            geocoder.geocodeAddressString(zipCode!) {
+                (placemarks, error) -> Void in
+                // Placemarks is an optional array of CLPlacemarks, first item in array is best guess of Address
+                
+                if let placemark = placemarks?[0] {
+                if let city = placemark.addressDictionary!["City"] as? String! {
+                        print(city)
+                    self.cityName.text = city
+                    self.zipcode.text = self.txtZipcode.text
+                    self.imgWeather.isHidden = false
+                    self.btnSelectLocation.isEnabled = true
+                    self.btnSelectLocation.backgroundColor  =  #colorLiteral(red: 0.4767096639, green: 0.7372747064, blue: 0.09030196816, alpha: 1)
+                    
+                    //Pass zipcode between viewControllers
+                    Shared.shared.zipcode = self.zipcode.text
+                    }
+                }
+            }
         }
-        else{
+        else if txtZipcode.text == ""{
             alertSearch.addAction(UIAlertAction(title: "Confirm", style: UIAlertActionStyle.default, handler: nil))
             self.present(alertSearch, animated: true, completion: nil)
             //alertSearch.Action
         }
     }
 
-    @IBAction func btnSelectLocationOnClick(_ sender: Any) {       
+    @IBAction func btnSelectLocationOnClick(_ sender: Any) {
+              // self.performSegue(withIdentifier: "locationToController", sender: self)
     }
    
+    
 
 }
