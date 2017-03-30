@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3E309AC31E8CC6F100606386 /* client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E309AC21E8CC6F100606386 /* client.swift */; };
 		3E3EBB0C1E8B7C8F00A1F3EE /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3EBB0B1E8B7C8F00A1F3EE /* Shared.swift */; };
 		3E728DB01E7284AE00D66583 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E728DAF1E7284AE00D66583 /* AppDelegate.swift */; };
 		3E728DB21E7284AE00D66583 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E728DB11E7284AE00D66583 /* FirstViewController.swift */; };
@@ -29,7 +28,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3E309AC21E8CC6F100606386 /* client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = client.swift; sourceTree = "<group>"; };
 		3E3EBB0B1E8B7C8F00A1F3EE /* Shared.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shared.swift; sourceTree = "<group>"; };
 		3E728DAC1E7284AE00D66583 /* SmartSprinkler_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartSprinkler_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E728DAF1E7284AE00D66583 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -104,7 +102,6 @@
 				3E728DB31E7284AE00D66583 /* SecondViewController.swift */,
 				3E728DCA1E73B5FA00D66583 /* ConnectionController.swift */,
 				3E9338B11E749B750088DF75 /* ConfirmViewController.swift */,
-				3E309AC21E8CC6F100606386 /* client.swift */,
 				3E9FAD141E8C53AC00D9A949 /* HistoryViewController.swift */,
 				3E728DC81E73B18500D66583 /* MainViewController.swift */,
 				3E982EED1E7649BA00765072 /* LocalWeatherViewController.swift */,
@@ -259,7 +256,6 @@
 				3E9FAD151E8C53AC00D9A949 /* HistoryViewController.swift in Sources */,
 				3E728DB41E7284AE00D66583 /* SecondViewController.swift in Sources */,
 				3E9338B21E749B760088DF75 /* ConfirmViewController.swift in Sources */,
-				3E309AC31E8CC6F100606386 /* client.swift in Sources */,
 				3E728DB01E7284AE00D66583 /* AppDelegate.swift in Sources */,
 				3E728DB21E7284AE00D66583 /* FirstViewController.swift in Sources */,
 				3EEBBDF11E7E5110000213C1 /* MapView.swift in Sources */,

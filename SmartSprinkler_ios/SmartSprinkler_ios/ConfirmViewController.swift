@@ -26,7 +26,7 @@ class ConfirmViewController: UIViewController,StreamDelegate {
     @IBOutlet weak var lblAuto: UILabel!
     
     //Socket Server
-    let addr = "10.0.1.44"
+    let addr = Shared.shared.deviceAddr
     let port = 9876
     
     //Network variables
@@ -162,10 +162,6 @@ class ConfirmViewController: UIViewController,StreamDelegate {
             Shared.shared.historyCount += 1
             print("Number of History: " + String(Shared.shared.historyCount))
             
-            //TODO: Socket Connection
-            //            if networkEnable == false{
-            //                NetworkEnable()
-            //            }
             let data = lblZipcode.text!  + " " + lblStartTime.text! + " " + lblWaterNeeded.text!
             print("Sending: " + data)
             sendData(input: data)
@@ -173,9 +169,6 @@ class ConfirmViewController: UIViewController,StreamDelegate {
         else{
             if networkEnable == true{
                 print("NetworkDisable")
-                //                inStream?.close()
-                //                outStream?.close()
-                //                networkEnable = false
             }
             self.performSegue(withIdentifier: "segueToMain", sender: self)
         }

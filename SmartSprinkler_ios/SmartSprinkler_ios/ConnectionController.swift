@@ -81,7 +81,6 @@ class ConnectionController: UIViewController,StreamDelegate {
         buffer = [UInt8](repeating: 0, count: 200)
     }
 
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -108,11 +107,11 @@ class ConnectionController: UIViewController,StreamDelegate {
     @IBAction func btnCompleteOnClick(_ sender: Any) {
         if (Shared.shared.hasDevice == true){
             //Disconnect 
-            print("set false")
+            print("has Device set false")
             Shared.shared.hasDevice = false
             
         }else{
-            print("set true")
+            print("has Deviceset true")
             Shared.shared.hasDevice = true
         }
     }
@@ -146,6 +145,4 @@ class ConnectionController: UIViewController,StreamDelegate {
             print("Connection initialized, addr: " + String(Shared.shared.deviceAddr))
         }
     }
-    
-    
   }
