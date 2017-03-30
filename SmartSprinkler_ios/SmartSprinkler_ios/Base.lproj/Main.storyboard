@@ -904,7 +904,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Im5-va-gPR">
-                                <rect key="frame" x="67" y="272" width="240" height="65"/>
+                                <rect key="frame" x="67" y="288" width="240" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="17"/>
@@ -966,6 +966,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="device address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0eB-No-EyE">
+                                <rect key="frame" x="16" y="235" width="154" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AZX-8F-YT8">
+                                <rect key="frame" x="150" y="230" width="185" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -975,8 +989,10 @@
                     <connections>
                         <outlet property="btnComplete" destination="dLK-eb-IAc" id="lbj-0a-Ucj"/>
                         <outlet property="btnConnection" destination="Im5-va-gPR" id="6RU-aU-cFo"/>
+                        <outlet property="lblDeviceAddr" destination="0eB-No-EyE" id="oHi-Ye-MoG"/>
                         <outlet property="lblDeviceId" destination="KLL-Re-BwK" id="7R3-yR-ZQ8"/>
                         <outlet property="processBar" destination="E9d-Cm-fww" id="80h-El-B8g"/>
+                        <outlet property="txtDeviceAddr" destination="AZX-8F-YT8" id="OhL-gd-6me"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ar8-k1-TqH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1146,8 +1162,8 @@
         <image name="weather-icon" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rk8-T3-lAg"/>
-        <segue reference="9cf-Of-GDI"/>
+        <segue reference="J5i-jM-f6l"/>
         <segue reference="CEE-LC-xYV"/>
+        <segue reference="rk8-T3-lAg"/>
     </inferredMetricsTieBreakers>
 </document>

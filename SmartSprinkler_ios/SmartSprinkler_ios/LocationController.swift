@@ -48,15 +48,15 @@ class LocationController:UIViewController,CLLocationManagerDelegate,MKMapViewDel
         }
         locationManager.startUpdatingLocation()
         
-        //Weather Code 
-//       let baseURL = NSURL(string: "https://api.forecast.io/forecast/\(apiKey)/")
-//       let forecastURL = NSURL(string: "32.302452,-80.975017", relativeToURL: baseURL as! URL)
-//        
-//       let weatherData = NSData.dataWithContentsOfURL(forecastURL, options: nil, error: nil)
-//        println(weatherData)
+        //Weather Code
+        //       let baseURL = NSURL(string: "https://api.forecast.io/forecast/\(apiKey)/")
+        //       let forecastURL = NSURL(string: "32.302452,-80.975017", relativeToURL: baseURL as! URL)
+        //
+        //       let weatherData = NSData.dataWithContentsOfURL(forecastURL, options: nil, error: nil)
+        //        println(weatherData)
         
     }
-
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         let location = locations.last! as CLLocation
@@ -90,17 +90,17 @@ class LocationController:UIViewController,CLLocationManagerDelegate,MKMapViewDel
                 (placemarks, error) -> Void in
                 // Placemarks is an optional array of CLPlacemarks, first item in array is best guess of Address
                 if let placemark = placemarks?[0] {
-                if let city = placemark.addressDictionary!["City"] as? String! {
+                    if let city = placemark.addressDictionary!["City"] as? String! {
                         print(city)
-                    self.cityName.text = city
-                    self.zipcode.text = self.txtZipcode.text
-                    self.imgWeather.isHidden = false
-                    self.btnSelectLocation.isEnabled = true
-                    self.btnSelectLocation.backgroundColor  =  #colorLiteral(red: 0.4767096639, green: 0.7372747064, blue: 0.09030196816, alpha: 1)
-                    self.view.endEditing(true)
-                    
-                    //Pass zipcode between viewControllers
-                    Shared.shared.zipcode = self.zipcode.text
+                        self.cityName.text = city
+                        self.zipcode.text = self.txtZipcode.text
+                        self.imgWeather.isHidden = false
+                        self.btnSelectLocation.isEnabled = true
+                        self.btnSelectLocation.backgroundColor  =  #colorLiteral(red: 0.4767096639, green: 0.7372747064, blue: 0.09030196816, alpha: 1)
+                        self.view.endEditing(true)
+                        
+                        //Pass zipcode between viewControllers
+                        Shared.shared.zipcode = self.zipcode.text
                     }
                 }
             }
@@ -111,11 +111,11 @@ class LocationController:UIViewController,CLLocationManagerDelegate,MKMapViewDel
             //alertSearch.Action
         }
     }
-
+    
     @IBAction func btnSelectLocationOnClick(_ sender: Any) {
         // self.performSegue(withIdentifier: "locationToController", sender: self)
     }
-   
     
-
+    
+    
 }

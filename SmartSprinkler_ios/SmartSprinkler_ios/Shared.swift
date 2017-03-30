@@ -15,6 +15,7 @@ final class Shared{
     
     //Network configuration
     var deviceConnected = false
+    var deviceAddr = ""
     
     //From FirstViewController to ConfirmViewController
     var Precipitation: String!

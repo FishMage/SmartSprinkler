@@ -21,7 +21,6 @@ class FirstViewController: UIViewController {
     var passedZip:String!
     var passedCityName:String!
     
-  //  passedZip = ""
     override func viewDidLoad() {
         presetSeg.isEnabled = false
         super.viewDidLoad()
@@ -34,6 +33,7 @@ class FirstViewController: UIViewController {
             btnConfirm.backgroundColor = #colorLiteral(red: 0.4767096639, green: 0.7372747064, blue: 0.09030196816, alpha: 1)
             print("Zipcode is specified")
         }
+        
         //get shared value
         if (Shared.shared.zipcode) != nil {
             passedZip = Shared.shared.zipcode

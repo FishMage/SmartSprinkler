@@ -12,7 +12,10 @@ class ConnectionController: UIViewController,StreamDelegate {
 
     let alert = UIAlertController(title: "AWS IoT", message: "Device ID: SmrtSprinkler_UWiot found!", preferredStyle: UIAlertControllerStyle.alert)
     let disConnectAlert = UIAlertController(title: "AWS IoT", message: "Device ID: SmrtSprinkler_UWiot Disconnect!", preferredStyle: UIAlertControllerStyle.alert)
+    let noDeviceAlert = UIAlertController(title: "AWS IoT", message: "Please provide a device address to connect", preferredStyle: UIAlertControllerStyle.alert)
 
+    @IBOutlet weak var lblDeviceAddr: UILabel!
+    @IBOutlet weak var txtDeviceAddr: UITextField!
     @IBOutlet weak var lblDeviceId: UILabel!
     @IBOutlet weak var btnComplete: UIButton!
     @IBOutlet weak var processBar: UIProgressView!
@@ -34,8 +37,10 @@ class ConnectionController: UIViewController,StreamDelegate {
     var progessComplete = false
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         processBar.progress = 0.00
+        txtDeviceAddr.placeholder = "e.g. 10.0.1.44"
         //NOT CONNECTED
         if(Shared.shared.hasDevice == false){
             print("No devices connected")
@@ -47,6 +52,8 @@ class ConnectionController: UIViewController,StreamDelegate {
         //CONNECTED
         else if(Shared.shared.hasDevice == true) {
             print("Has devices connected")
+            lblDeviceAddr.isHidden = true
+            txtDeviceAddr.isHidden = true
             btnConnection.setTitle("AWS Connected!", for: .normal)
             btnConnection.backgroundColor =  #colorLiteral(red: 0.4767096639, green: 0.7372747064, blue: 0.09030196816, alpha: 1)
             btnConnection.isEnabled = false
@@ -113,23 +120,31 @@ class ConnectionController: UIViewController,StreamDelegate {
     @IBAction func btnConnectionOnClick(_ sender: Any) {
         //func updateProgress(){}
         //let progressComplete = false
-        processBar.isHidden = false
-    
-        CATransaction.begin()
-        CATransaction.setCompletionBlock({
-        // do whatever you want when the animation is completed
-            self.showComplete()
-        })
-        processBar.setProgress(3, animated: true)
-        CATransaction.commit()
-        //Shared.shared.hasDevice = true
-        if networkEnable == false{
-           // NetworkEnable()
-            print("Network Enabled")
+        if (!Shared.shared.hasDevice && txtDeviceAddr.text == "") {
+            //Warning message
+            noDeviceAlert.addAction(UIAlertAction(title: "Continue", style: UIAlertActionStyle.default, handler: nil))
+            self.present(noDeviceAlert, animated: true, completion: nil)
+            self.view.endEditing(true)
+        }else{
+            processBar.isHidden = false
+            CATransaction.begin()
+            CATransaction.setCompletionBlock({
+                // do whatever you want when the animation is completed
+                self.showComplete()
+            })
+            processBar.setProgress(3, animated: true)
+            CATransaction.commit()
+            //Shared.shared.hasDevice = true
+            if networkEnable == false{
+                // NetworkEnable()
+                print("Network Enabled")
+            }
+            //TODO: InputValidation..
+            
+            Shared.shared.deviceAddr = txtDeviceAddr.text!
+            self.view.endEditing(true)
+            print("Connection initialized, addr: " + String(Shared.shared.deviceAddr))
         }
-        
-        print("Connection initialized")
-        
     }
     
     

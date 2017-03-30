@@ -10,7 +10,7 @@ import UIKit
 
 
 class ConfirmViewController: UIViewController,StreamDelegate {
-
+    
     //@IBOutlet weak var lblCongrats: UILabel!
     @IBOutlet weak var lblClickToStart: UILabel!
     @IBOutlet weak var lblCompleteMessage_small: UILabel!
@@ -24,7 +24,7 @@ class ConfirmViewController: UIViewController,StreamDelegate {
     @IBOutlet weak var lblStartTime: UILabel!
     @IBOutlet weak var lblEndTime: UILabel!
     @IBOutlet weak var lblAuto: UILabel!
-
+    
     //Socket Server
     let addr = "10.0.1.44"
     let port = 9876
@@ -70,7 +70,7 @@ class ConfirmViewController: UIViewController,StreamDelegate {
         }
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -118,7 +118,7 @@ class ConfirmViewController: UIViewController,StreamDelegate {
             print("Stop outStream currentRunLoop")
             outStream?.remove(from: RunLoop.current, forMode: RunLoopMode.defaultRunLoopMode)
             //buttonConnect.alpha = 1
-            //buttonConnect.enabled = true
+        //buttonConnect.enabled = true
         case Stream.Event.errorOccurred:
             print("ErrorOccurred")
             
@@ -126,27 +126,20 @@ class ConfirmViewController: UIViewController,StreamDelegate {
             inStream?.remove(from: RunLoop.current, forMode: RunLoopMode.defaultRunLoopMode)
             outStream?.close()
             outStream?.remove(from: RunLoop.current, forMode: RunLoopMode.defaultRunLoopMode)
-//            labelConnection.text = "Failed to connect to server"
-//            buttonConnect.alpha = 1
-//            buttonConnect.enabled = true
-//            label.text = ""
         case Stream.Event.hasBytesAvailable:
             print("HasBytesAvailable")
             
             if aStream == inStream {
                 inStream!.read(&buffer, maxLength: buffer.count)
                 let bufferStr = NSString(bytes: &buffer, length: buffer.count, encoding: String.Encoding.utf8.rawValue)
-               // label.text = bufferStr! as String
                 print(bufferStr!)
             }
             
         case Stream.Event.hasSpaceAvailable:
             print("HasSpaceAvailable")
-//        case Stream.Event.:
-//            print("None")
         case Stream.Event.openCompleted:
             print("OpenCompleted")
-            //labelConnection.text = "Connected to server"
+        //labelConnection.text = "Connected to server"
         default:
             print("Unknown")
         }
@@ -155,7 +148,6 @@ class ConfirmViewController: UIViewController,StreamDelegate {
     @IBAction func btnStartSprinklingOnClick(_ sender: Any) {
         if btnStartSprinkling.titleLabel?.text != "Finish"{
             sleep(2)
-            //btnStartSprinkling.isHidden = false
             btnStartSprinkling.setTitle("Finish", for: .normal)
             btnStartSprinkling.backgroundColor = #colorLiteral(red: 0.4767096639, green: 0.7372747064, blue: 0.09030196816, alpha: 1)
             lblClickToStart.isHidden = true
@@ -171,9 +163,9 @@ class ConfirmViewController: UIViewController,StreamDelegate {
             print("Number of History: " + String(Shared.shared.historyCount))
             
             //TODO: Socket Connection
-//            if networkEnable == false{
-//                NetworkEnable()
-//            }
+            //            if networkEnable == false{
+            //                NetworkEnable()
+            //            }
             let data = lblZipcode.text!  + " " + lblStartTime.text! + " " + lblWaterNeeded.text!
             print("Sending: " + data)
             sendData(input: data)
@@ -181,26 +173,13 @@ class ConfirmViewController: UIViewController,StreamDelegate {
         else{
             if networkEnable == true{
                 print("NetworkDisable")
-//                inStream?.close()
-//                outStream?.close()
-                //networkEnable = false
+                //                inStream?.close()
+                //                outStream?.close()
+                //                networkEnable = false
             }
             self.performSegue(withIdentifier: "segueToMain", sender: self)
         }
-        
-        
-        
+    
     }
-
-    /*
-     
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }
