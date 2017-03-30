@@ -1,4 +1,4 @@
-# SmartSprinkler
+# SmartSprinkler (WaterMe.IoT)
 The Controller of the Smart sprinkler project (Application side)
 Python scripts controls ResberryPi.
 Using AWS(Potentially) connecting webservice and the physical device.
