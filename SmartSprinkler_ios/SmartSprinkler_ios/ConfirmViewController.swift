@@ -9,7 +9,7 @@
 import UIKit
 
 
-class ConfirmViewController: UIViewController {
+class ConfirmViewController: UIViewController,StreamDelegate {
 
     //@IBOutlet weak var lblCongrats: UILabel!
     @IBOutlet weak var lblClickToStart: UILabel!
@@ -24,9 +24,25 @@ class ConfirmViewController: UIViewController {
     @IBOutlet weak var lblStartTime: UILabel!
     @IBOutlet weak var lblEndTime: UILabel!
     @IBOutlet weak var lblAuto: UILabel!
+
+    //Socket Server
+    let addr = "10.0.1.44"
+    let port = 9876
+    
+    //Network variables
+    var networkEnable = false
+    var inStream : InputStream?
+    var outStream: OutputStream?
+    
+    //Data received
+    var buffer = [UInt8](repeating: 0, count: 200)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if networkEnable == false{
+            NetworkEnable()
+            networkEnable = true
+        }
         lblCompleteMessage.isHidden = true
         lblCompleteMessage_small.isHidden = true
         
@@ -59,6 +75,83 @@ class ConfirmViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    //NETWORK FUNCTIONS
+    func NetworkEnable() {
+        
+        print("NetworkEnable")
+        Stream.getStreamsToHost(withName: addr, port: port, inputStream: &inStream, outputStream: &outStream)
+        
+        inStream?.delegate = self
+        outStream?.delegate = self
+        
+        inStream?.schedule(in: RunLoop.current, forMode: RunLoopMode.defaultRunLoopMode)
+        outStream?.schedule(in: RunLoop.current, forMode: RunLoopMode.defaultRunLoopMode)
+        
+        inStream?.open()
+        outStream?.open()
+        
+        buffer = [UInt8](repeating: 0, count: 200)
+    }
+    
+    func sendData(input: String) {
+        let data : NSData = input.data(using: String.Encoding.utf8)! as NSData
+        //outStream?.write(<#T##buffer: UnsafePointer<UInt8>##UnsafePointer<UInt8>#>, maxLength: <#T##Int#>)
+        outStream?.write(data.bytes.assumingMemoryBound(to: UInt8.self), maxLength: data.length)
+        print("data Sent")
+    }
+    
+    func btnQuitPressed() {
+        let data : NSData = "Quit".data(using: String.Encoding.utf8)! as NSData
+        outStream?.write(data.bytes.assumingMemoryBound(to: UInt8.self), maxLength: data.length)
+    }
+    
+    func stream(aStream: Stream, handleEvent eventCode: Stream.Event) {
+        
+        switch eventCode {
+        case Stream.Event.endEncountered:
+            print("EndEncountered")
+            //labelConnection.text = "Connection stopped by server"
+            inStream?.close()
+            inStream?.remove(from: RunLoop.current, forMode: RunLoopMode.defaultRunLoopMode)
+            outStream?.close()
+            print("Stop outStream currentRunLoop")
+            outStream?.remove(from: RunLoop.current, forMode: RunLoopMode.defaultRunLoopMode)
+            //buttonConnect.alpha = 1
+            //buttonConnect.enabled = true
+        case Stream.Event.errorOccurred:
+            print("ErrorOccurred")
+            
+            inStream?.close()
+            inStream?.remove(from: RunLoop.current, forMode: RunLoopMode.defaultRunLoopMode)
+            outStream?.close()
+            outStream?.remove(from: RunLoop.current, forMode: RunLoopMode.defaultRunLoopMode)
+//            labelConnection.text = "Failed to connect to server"
+//            buttonConnect.alpha = 1
+//            buttonConnect.enabled = true
+//            label.text = ""
+        case Stream.Event.hasBytesAvailable:
+            print("HasBytesAvailable")
+            
+            if aStream == inStream {
+                inStream!.read(&buffer, maxLength: buffer.count)
+                let bufferStr = NSString(bytes: &buffer, length: buffer.count, encoding: String.Encoding.utf8.rawValue)
+               // label.text = bufferStr! as String
+                print(bufferStr!)
+            }
+            
+        case Stream.Event.hasSpaceAvailable:
+            print("HasSpaceAvailable")
+//        case Stream.Event.:
+//            print("None")
+        case Stream.Event.openCompleted:
+            print("OpenCompleted")
+            //labelConnection.text = "Connected to server"
+        default:
+            print("Unknown")
+        }
+    }
+    
     @IBAction func btnStartSprinklingOnClick(_ sender: Any) {
         if btnStartSprinkling.titleLabel?.text != "Finish"{
             sleep(2)
@@ -77,10 +170,21 @@ class ConfirmViewController: UIViewController {
             Shared.shared.historyCount += 1
             print("Number of History: " + String(Shared.shared.historyCount))
             
-            //TODO: AWS IoT...
-            
+            //TODO: Socket Connection
+//            if networkEnable == false{
+//                NetworkEnable()
+//            }
+            let data = lblZipcode.text!  + " " + lblStartTime.text! + " " + lblWaterNeeded.text!
+            print("Sending: " + data)
+            sendData(input: data)
         }
         else{
+            if networkEnable == true{
+                print("NetworkDisable")
+//                inStream?.close()
+//                outStream?.close()
+                //networkEnable = false
+            }
             self.performSegue(withIdentifier: "segueToMain", sender: self)
         }
         

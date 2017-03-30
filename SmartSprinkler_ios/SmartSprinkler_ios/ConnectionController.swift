@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ConnectionController: UIViewController {
+class ConnectionController: UIViewController,StreamDelegate {
 
     let alert = UIAlertController(title: "AWS IoT", message: "Device ID: SmrtSprinkler_UWiot found!", preferredStyle: UIAlertControllerStyle.alert)
     let disConnectAlert = UIAlertController(title: "AWS IoT", message: "Device ID: SmrtSprinkler_UWiot Disconnect!", preferredStyle: UIAlertControllerStyle.alert)
@@ -17,6 +17,18 @@ class ConnectionController: UIViewController {
     @IBOutlet weak var btnComplete: UIButton!
     @IBOutlet weak var processBar: UIProgressView!
     @IBOutlet weak var btnConnection: UIButton!
+    
+    //Socket Server
+    let addr = "10.0.1.44"
+    let port = 9876
+    
+    //Network variables
+    var networkEnable = false
+    var inStream : InputStream?
+    var outStream: OutputStream?
+    
+    //Data received
+    var buffer = [UInt8](repeating: 0, count: 200)
     
     //var progessComplete:Bool!
     var progessComplete = false
@@ -45,6 +57,24 @@ class ConnectionController: UIViewController {
         }
     }
 
+    func NetworkEnable() {
+        
+        print("NetworkEnable")
+        Stream.getStreamsToHost(withName: addr, port: port, inputStream: &inStream, outputStream: &outStream)
+        
+        inStream?.delegate = self
+        outStream?.delegate = self
+        
+        inStream?.schedule(in: RunLoop.current, forMode: RunLoopMode.defaultRunLoopMode)
+        outStream?.schedule(in: RunLoop.current, forMode: RunLoopMode.defaultRunLoopMode)
+        
+        inStream?.open()
+        outStream?.open()
+        
+        buffer = [UInt8](repeating: 0, count: 200)
+    }
+
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -93,7 +123,13 @@ class ConnectionController: UIViewController {
         processBar.setProgress(3, animated: true)
         CATransaction.commit()
         //Shared.shared.hasDevice = true
+        if networkEnable == false{
+           // NetworkEnable()
+            print("Network Enabled")
+        }
+        
         print("Connection initialized")
+        
     }
     
     

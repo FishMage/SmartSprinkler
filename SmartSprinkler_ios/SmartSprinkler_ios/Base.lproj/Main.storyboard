@@ -735,7 +735,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g9u-zK-RWX" userLabel="Controller-button">
-                                            <rect key="frame" x="204" y="62" width="137" height="134"/>
+                                            <rect key="frame" x="204" y="64" width="137" height="134"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <size key="titleShadowOffset" width="3" height="0.0"/>
                                             <state key="normal" title=" " image="sprinkler-icon2"/>
@@ -805,7 +805,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Controller" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBx-8G-Ed1">
-                                            <rect key="frame" x="215" y="216" width="115" height="21"/>
+                                            <rect key="frame" x="215" y="220" width="115" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="17"/>
                                             <nil key="textColor"/>

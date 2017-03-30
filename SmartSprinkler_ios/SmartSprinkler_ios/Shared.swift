@@ -13,6 +13,9 @@ final class Shared{
     //From LocationController to FirstViewController
     var zipcode: String!
     
+    //Network configuration
+    var deviceConnected = false
+    
     //From FirstViewController to ConfirmViewController
     var Precipitation: String!
     var confirmedZip: String!
