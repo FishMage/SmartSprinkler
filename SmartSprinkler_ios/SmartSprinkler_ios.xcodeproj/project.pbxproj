@@ -22,7 +22,9 @@
 		3E9338B21E749B760088DF75 /* ConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9338B11E749B750088DF75 /* ConfirmViewController.swift */; };
 		3E982EEE1E7649BA00765072 /* LocalWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E982EED1E7649BA00765072 /* LocalWeatherViewController.swift */; };
 		3E982EF01E764C6500765072 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E982EEF1E764C6500765072 /* WebKit.framework */; };
+		3E9FAD151E8C53AC00D9A949 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9FAD141E8C53AC00D9A949 /* HistoryViewController.swift */; };
 		3EEBBDF11E7E5110000213C1 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEBBDF01E7E5110000213C1 /* MapView.swift */; };
+		F78747D0DFD9393643474DB5 /* Pods_SmartSprinkler_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C052DE2D4602DB1A61740FC1 /* Pods_SmartSprinkler_ios.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,7 +45,11 @@
 		3E9338B11E749B750088DF75 /* ConfirmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmViewController.swift; sourceTree = "<group>"; };
 		3E982EED1E7649BA00765072 /* LocalWeatherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocalWeatherViewController.swift; path = ../LocalWeatherViewController.swift; sourceTree = "<group>"; };
 		3E982EEF1E764C6500765072 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		3E9FAD141E8C53AC00D9A949 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		3EEBBDF01E7E5110000213C1 /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		574E7FBB84B3A65A60FE493F /* Pods-SmartSprinkler_ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartSprinkler_ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmartSprinkler_ios/Pods-SmartSprinkler_ios.debug.xcconfig"; sourceTree = "<group>"; };
+		BD713411E85C1B384B4DF5BD /* Pods-SmartSprinkler_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartSprinkler_ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartSprinkler_ios/Pods-SmartSprinkler_ios.release.xcconfig"; sourceTree = "<group>"; };
+		C052DE2D4602DB1A61740FC1 /* Pods_SmartSprinkler_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartSprinkler_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,18 +59,29 @@
 			files = (
 				3E982EF01E764C6500765072 /* WebKit.framework in Frameworks */,
 				3E728DC71E734C2D00D66583 /* MapKit.framework in Frameworks */,
+				F78747D0DFD9393643474DB5 /* Pods_SmartSprinkler_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		01609BD3FDAF6D71F0D61803 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				574E7FBB84B3A65A60FE493F /* Pods-SmartSprinkler_ios.debug.xcconfig */,
+				BD713411E85C1B384B4DF5BD /* Pods-SmartSprinkler_ios.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		3E728DA31E7284AE00D66583 = {
 			isa = PBXGroup;
 			children = (
 				3E728DAE1E7284AE00D66583 /* SmartSprinkler_ios */,
 				3E728DAD1E7284AE00D66583 /* Products */,
 				3E728DC51E734C2D00D66583 /* Frameworks */,
+				01609BD3FDAF6D71F0D61803 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -85,6 +102,7 @@
 				3E728DB31E7284AE00D66583 /* SecondViewController.swift */,
 				3E728DCA1E73B5FA00D66583 /* ConnectionController.swift */,
 				3E9338B11E749B750088DF75 /* ConfirmViewController.swift */,
+				3E9FAD141E8C53AC00D9A949 /* HistoryViewController.swift */,
 				3E728DC81E73B18500D66583 /* MainViewController.swift */,
 				3E982EED1E7649BA00765072 /* LocalWeatherViewController.swift */,
 				3E728DC31E73465100D66583 /* LocationController.swift */,
@@ -103,6 +121,7 @@
 			children = (
 				3E982EEF1E764C6500765072 /* WebKit.framework */,
 				3E728DC61E734C2D00D66583 /* MapKit.framework */,
+				C052DE2D4602DB1A61740FC1 /* Pods_SmartSprinkler_ios.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -114,9 +133,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3E728DC01E7284AE00D66583 /* Build configuration list for PBXNativeTarget "SmartSprinkler_ios" */;
 			buildPhases = (
+				E6F41FBFD89417949230DB1B /* [CP] Check Pods Manifest.lock */,
 				3E728DA81E7284AE00D66583 /* Sources */,
 				3E728DA91E7284AE00D66583 /* Frameworks */,
 				3E728DAA1E7284AE00D66583 /* Resources */,
+				21635715B9E144D22AD7D20D /* [CP] Embed Pods Frameworks */,
+				E7776547C44A1F17735BA296 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -175,6 +197,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		21635715B9E144D22AD7D20D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SmartSprinkler_ios/Pods-SmartSprinkler_ios-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E6F41FBFD89417949230DB1B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E7776547C44A1F17735BA296 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SmartSprinkler_ios/Pods-SmartSprinkler_ios-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3E728DA81E7284AE00D66583 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -183,6 +253,7 @@
 				3E728DC41E73465100D66583 /* LocationController.swift in Sources */,
 				3E728DCB1E73B5FA00D66583 /* ConnectionController.swift in Sources */,
 				3E982EEE1E7649BA00765072 /* LocalWeatherViewController.swift in Sources */,
+				3E9FAD151E8C53AC00D9A949 /* HistoryViewController.swift in Sources */,
 				3E728DB41E7284AE00D66583 /* SecondViewController.swift in Sources */,
 				3E9338B21E749B760088DF75 /* ConfirmViewController.swift in Sources */,
 				3E728DB01E7284AE00D66583 /* AppDelegate.swift in Sources */,
@@ -309,11 +380,12 @@
 		};
 		3E728DC11E7284AE00D66583 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 574E7FBB84B3A65A60FE493F /* Pods-SmartSprinkler_ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8SKQ2SNAXM;
 				INFOPLIST_FILE = SmartSprinkler_ios/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.WiscCs.RichardChen.SmartSprinkler-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -323,11 +395,12 @@
 		};
 		3E728DC21E7284AE00D66583 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BD713411E85C1B384B4DF5BD /* Pods-SmartSprinkler_ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8SKQ2SNAXM;
 				INFOPLIST_FILE = SmartSprinkler_ios/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.WiscCs.RichardChen.SmartSprinkler-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";

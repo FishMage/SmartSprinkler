@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class ConfirmViewController: UIViewController {
 
     //@IBOutlet weak var lblCongrats: UILabel!
@@ -60,19 +61,29 @@ class ConfirmViewController: UIViewController {
     }
     @IBAction func btnStartSprinklingOnClick(_ sender: Any) {
         if btnStartSprinkling.titleLabel?.text != "Finish"{
-            sleep(1)
+            sleep(2)
             //btnStartSprinkling.isHidden = false
             btnStartSprinkling.setTitle("Finish", for: .normal)
             btnStartSprinkling.backgroundColor = #colorLiteral(red: 0.4767096639, green: 0.7372747064, blue: 0.09030196816, alpha: 1)
             lblClickToStart.isHidden = true
             lblCompleteMessage_small.isHidden = false
             lblCompleteMessage.isHidden = false
-            //lblCongrats.isHidden = false
+            let historyArr = [lblZipcode.text, lblStartTime.text]
+            
+            //TODO: Persistent Storage for History
+            let numHistory = String(Shared.shared.historyCount)
+            Shared.shared.userDefaults.set(historyArr, forKey: numHistory)
+            Shared.shared.userDefaults.synchronize()
+            Shared.shared.historyCount += 1
+            print("Number of History: " + String(Shared.shared.historyCount))
+            
+            //TODO: AWS IoT...
+            
         }
         else{
             self.performSegue(withIdentifier: "segueToMain", sender: self)
         }
-        //TODO: AWS IoT
+        
         
         
     }

@@ -20,5 +20,11 @@ final class Shared{
     var StartTime: Date!
     var isAuto: Bool!
     
+    //History persistence Storage
+    //var historyArr:Array<String>!
+    var historyCount = 0
+    let userDefaults = UserDefaults.standard
     
+    //Device List
+    var hasDevice = false
 }

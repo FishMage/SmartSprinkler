@@ -14,7 +14,6 @@ import Foundation
 
 class LocationController:UIViewController,CLLocationManagerDelegate,MKMapViewDelegate {
     
-//    @IBOutlet weak var txtCityName: UITextField!
     @IBOutlet weak var txtZipcode: UITextField!
     @IBOutlet weak var btnSelectLocation: UIButton!
     @IBOutlet weak var cityName: UILabel!
@@ -24,7 +23,6 @@ class LocationController:UIViewController,CLLocationManagerDelegate,MKMapViewDel
     @IBOutlet weak var imgWeather: UIImageView!
     
     //Map View
-    //var locationManager: CLLocationManager!
     let locationManager = CLLocationManager()
     
     //define alerts
@@ -85,26 +83,12 @@ class LocationController:UIViewController,CLLocationManagerDelegate,MKMapViewDel
     
     @IBAction func btnSearchOnClick(_ sender: Any) {
         if txtZipcode.text != ""{
-/*          //add actions to message
-            alert.addAction(UIAlertAction(title: "Confirm", style: UIAlertActionStyle.default, handler: nil))
-            
-            //present alert
-            self.present(alert, animated: true, completion: nil)
-            
-            sleep(1)
-            cityName.text = "Madison"
-            zipcode.text = txtZipcode.text
-            imgWeather.isHidden = false
-            btnSelectLocation.isEnabled = true
-            btnSelectLocation.backgroundColor  =  #colorLiteral(red: 0.4767096639, green: 0.7372747064, blue: 0.09030196816, alpha: 1)
- */
             let zipCode = txtZipcode.text
             
             let geocoder = CLGeocoder()
             geocoder.geocodeAddressString(zipCode!) {
                 (placemarks, error) -> Void in
                 // Placemarks is an optional array of CLPlacemarks, first item in array is best guess of Address
-                
                 if let placemark = placemarks?[0] {
                 if let city = placemark.addressDictionary!["City"] as? String! {
                         print(city)
@@ -113,6 +97,7 @@ class LocationController:UIViewController,CLLocationManagerDelegate,MKMapViewDel
                     self.imgWeather.isHidden = false
                     self.btnSelectLocation.isEnabled = true
                     self.btnSelectLocation.backgroundColor  =  #colorLiteral(red: 0.4767096639, green: 0.7372747064, blue: 0.09030196816, alpha: 1)
+                    self.view.endEditing(true)
                     
                     //Pass zipcode between viewControllers
                     Shared.shared.zipcode = self.zipcode.text
@@ -128,7 +113,7 @@ class LocationController:UIViewController,CLLocationManagerDelegate,MKMapViewDel
     }
 
     @IBAction func btnSelectLocationOnClick(_ sender: Any) {
-              // self.performSegue(withIdentifier: "locationToController", sender: self)
+        // self.performSegue(withIdentifier: "locationToController", sender: self)
     }
    
     

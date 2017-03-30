@@ -11,24 +11,38 @@ import UIKit
 class ConnectionController: UIViewController {
 
     let alert = UIAlertController(title: "AWS IoT", message: "Device ID: SmrtSprinkler_UWiot found!", preferredStyle: UIAlertControllerStyle.alert)
+    let disConnectAlert = UIAlertController(title: "AWS IoT", message: "Device ID: SmrtSprinkler_UWiot Disconnect!", preferredStyle: UIAlertControllerStyle.alert)
 
     @IBOutlet weak var lblDeviceId: UILabel!
     @IBOutlet weak var btnComplete: UIButton!
     @IBOutlet weak var processBar: UIProgressView!
     @IBOutlet weak var btnConnection: UIButton!
+    
     //var progessComplete:Bool!
     var progessComplete = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        btnComplete.isHidden = true
-        btnConnection.isEnabled = true
-        lblDeviceId.isHidden = true
-        processBar.isHidden = true
-        
         processBar.progress = 0.00
-        
-        //progessComplete = false
-        // Do any additional setup after loading the view.
+        //NOT CONNECTED
+        if(Shared.shared.hasDevice == false){
+            print("No devices connected")
+            btnComplete.isHidden = true
+            btnConnection.isEnabled = true
+            lblDeviceId.isHidden = true
+            processBar.isHidden = true
+        }
+        //CONNECTED
+        else if(Shared.shared.hasDevice == true) {
+            print("Has devices connected")
+            btnConnection.setTitle("AWS Connected!", for: .normal)
+            btnConnection.backgroundColor =  #colorLiteral(red: 0.4767096639, green: 0.7372747064, blue: 0.09030196816, alpha: 1)
+            btnConnection.isEnabled = false
+            btnComplete.setTitle("Disconnect", for: .normal)
+            btnComplete.backgroundColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
+            processBar.isHidden = true
+            lblDeviceId.isHidden = false
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,10 +60,27 @@ class ConnectionController: UIViewController {
         btnComplete.isHidden = false
         btnConnection.isEnabled = false
         lblDeviceId.isHidden = false
-        
+    
     }
     
-@IBAction func btnConnectionOnClick(_ sender: Any) {
+    func showDisconnect(){
+        disConnectAlert.addAction(UIAlertAction(title: "Continue", style: UIAlertActionStyle.default, handler: nil))
+        self.present(disConnectAlert, animated: true, completion: nil)
+    }
+    
+    @IBAction func btnCompleteOnClick(_ sender: Any) {
+        if (Shared.shared.hasDevice == true){
+            //Disconnect 
+            print("set false")
+            Shared.shared.hasDevice = false
+            
+        }else{
+            print("set true")
+            Shared.shared.hasDevice = true
+        }
+    }
+    
+    @IBAction func btnConnectionOnClick(_ sender: Any) {
         //func updateProgress(){}
         //let progressComplete = false
         processBar.isHidden = false
@@ -61,6 +92,8 @@ class ConnectionController: UIViewController {
         })
         processBar.setProgress(3, animated: true)
         CATransaction.commit()
+        //Shared.shared.hasDevice = true
+        print("Connection initialized")
     }
     
     
