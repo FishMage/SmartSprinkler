@@ -10,10 +10,12 @@ import UIKit
 
 class ConnectionController: UIViewController,StreamDelegate {
 
+    //Alerts
     let alert = UIAlertController(title: "AWS IoT", message: "Device ID: SmrtSprinkler_UWiot found!", preferredStyle: UIAlertControllerStyle.alert)
     let disConnectAlert = UIAlertController(title: "AWS IoT", message: "Device ID: SmrtSprinkler_UWiot Disconnect!", preferredStyle: UIAlertControllerStyle.alert)
     let noDeviceAlert = UIAlertController(title: "AWS IoT", message: "Please provide a device address to connect", preferredStyle: UIAlertControllerStyle.alert)
 
+    //View components
     @IBOutlet weak var lblDeviceAddr: UILabel!
     @IBOutlet weak var txtDeviceAddr: UITextField!
     @IBOutlet weak var lblDeviceId: UILabel!
@@ -41,6 +43,7 @@ class ConnectionController: UIViewController,StreamDelegate {
         super.viewDidLoad()
         processBar.progress = 0.00
         txtDeviceAddr.placeholder = "e.g. 10.0.1.44"
+        
         //NOT CONNECTED
         if(Shared.shared.hasDevice == false){
             print("No devices connected")
@@ -63,9 +66,9 @@ class ConnectionController: UIViewController,StreamDelegate {
             lblDeviceId.isHidden = false
         }
     }
-
+    
+    //Not used in Expo Version
     func NetworkEnable() {
-        
         print("NetworkEnable")
         Stream.getStreamsToHost(withName: addr, port: port, inputStream: &inStream, outputStream: &outStream)
         
@@ -138,7 +141,7 @@ class ConnectionController: UIViewController,StreamDelegate {
                 // NetworkEnable()
                 print("Network Enabled")
             }
-            //TODO: InputValidation..
+            //TODO: InputValidation. Send and check message received
             
             Shared.shared.deviceAddr = txtDeviceAddr.text!
             self.view.endEditing(true)

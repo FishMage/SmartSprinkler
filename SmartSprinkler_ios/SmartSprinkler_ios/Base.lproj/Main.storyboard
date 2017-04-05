@@ -398,7 +398,7 @@
                                 <color key="shadowColor" cocoaTouchSystemColor="lightTextColor"/>
                                 <size key="shadowOffset" width="11" height="-1"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your plant is being taking care of" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Thd-kZ-0jL">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sprinkling..." textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Thd-kZ-0jL">
                                 <rect key="frame" x="-127" y="416" width="628" height="74"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="13"/>
@@ -423,6 +423,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Device ID: SmrtSprinkler_UWiot" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tUK-4q-mRc">
+                                <rect key="frame" x="32" y="139" width="299" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -432,6 +439,7 @@
                         <outlet property="lblClickToStart" destination="gQC-0d-cvy" id="yWv-n8-XGu"/>
                         <outlet property="lblCompleteMessage" destination="uo9-qq-1aU" id="cGf-mE-FYA"/>
                         <outlet property="lblCompleteMessage_small" destination="Thd-kZ-0jL" id="jb6-8V-hnd"/>
+                        <outlet property="lblDeviceId" destination="tUK-4q-mRc" id="GwD-2s-oCF"/>
                         <outlet property="lblEndTime" destination="Z3m-vv-Kiv" id="qv9-c1-Txt"/>
                         <outlet property="lblPrecipitation" destination="xsw-WN-dfa" id="ZO7-XL-XsV"/>
                         <outlet property="lblStartTime" destination="ugI-R6-kuO" id="6Bf-uM-9Cd"/>
@@ -568,7 +576,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="History" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cfg-fW-Ofu">
-                                <rect key="frame" x="12" y="72" width="285" height="74"/>
+                                <rect key="frame" x="34" y="72" width="285" height="74"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="33"/>
                                 <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1072,7 +1080,7 @@
                                 <rect key="frame" x="35" y="125" width="304" height="235"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.70609482020547942" colorSpace="calibratedRGB"/>
-                                <string key="text">This application is a controller of the Smart Sprinkler IoT project for the advance independent research at University of Wisconsin-Madison. Developed by Richard Chen and Matt Saunders.  WaterMeIot was came up by Andy Ngyen.</string>
+                                <string key="text">This application is a controller of the Smart Sprinkler IoT project for the advance independent research at University of Wisconsin-Madison. Developed by Richard Chen and Matt Saunders.  The name "WaterMeIot" was came up by Andy Ngyen.</string>
                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -1162,8 +1170,8 @@
         <image name="weather-icon" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="J5i-jM-f6l"/>
-        <segue reference="CEE-LC-xYV"/>
+        <segue reference="9cf-Of-GDI"/>
         <segue reference="rk8-T3-lAg"/>
+        <segue reference="CEE-LC-xYV"/>
     </inferredMetricsTieBreakers>
 </document>
