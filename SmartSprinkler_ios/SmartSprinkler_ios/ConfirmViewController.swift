@@ -57,7 +57,7 @@ class ConfirmViewController: UIViewController,StreamDelegate {
              addr = Shared.shared.deviceAddr
         }
         else{
-             addr = "10.0.1.44" //Default private IP
+             addr = "10.140.137.122" //Default private IP
         }
         
         //Get info from previous View
