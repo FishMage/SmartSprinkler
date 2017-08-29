@@ -12,7 +12,7 @@ This IoT project is initially developed by a 5 people team in Fall 2016.
   During the poster session in Dec 2016, the sprinkler prototype can control the water flow based on user's input
   However, users can only access the sprinkler via Linux computer instead of mobile devices.
 	
-In Spring 2017 Richard Chen & Matt Saunders decided to continue this project by adding more features to it.
+In Spring 2017 Richard Chen & Matt Saunders decided to continue this project as the independent research project. 
 ## How it works:
 The iOS program can connect to the physical device(a Raspberry Pi 3) via AWS IoT services;
 
