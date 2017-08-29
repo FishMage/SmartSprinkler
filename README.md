@@ -14,7 +14,7 @@ This IoT project is initially developed by a 5 people team in Fall 2016.
 	
 In Spring 2017 Richard Chen & Matt Saunders decided to continue this project as the independent research project. 
 
-![Screenshot](download.png)
+![Screenshot](download.png)  ![Screenshot](IMG_8084.JPG)
 
 ## How it works:
 The iOS program can connect to the physical device(a Raspberry Pi 3) via AWS IoT services;
