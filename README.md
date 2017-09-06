@@ -7,7 +7,6 @@ Alternatively, we also have a socket connection
 
 	Ref: http://studyraspberrypi.blogspot.com/2016/03/sending-rsa-encrypted-message-ios.html
 ## History:
-This IoT project is initially developed by a 5 people team in Fall 2016.
 
   During the poster session in Dec 2016, the sprinkler prototype can control the water flow based on user's input
   However, users can only access the sprinkler via Linux computer instead of mobile devices.
